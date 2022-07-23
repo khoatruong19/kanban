@@ -4,7 +4,7 @@ import { Box } from '@mui/system'
 import {  Task } from '@prisma/client'
 import React, { useEffect, useState } from 'react'
 import {DragDropContext, Draggable, Droppable, DropResult} from "react-beautiful-dnd"
-import { TaskType } from '../../prisma/zod/task'
+import { z } from 'zod'
 import { CompleteSectionType } from '../pages/boards/[id]'
 import { trpc } from '../utils/trpc'
 import TaskModal from './TaskModal'
@@ -13,6 +13,18 @@ interface IProps{
     boardId: string
     sections: CompleteSectionType[]
 }
+
+const _TaskModel = z.object({
+    id: z.string(),
+    title: z.string(),
+    content: z.string(),
+    position: z.number().int(),
+    sectionId: z.string(),
+    createdAt: z.date(),
+    updatedAt: z.date(),
+  }).array()
+
+type TaskType = z.TypeOf<typeof _TaskModel>
 
 let timer : NodeJS.Timeout
 const timeout = 500
