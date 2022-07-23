@@ -1,10 +1,10 @@
 import { AddOutlined, DeleteOutline } from '@mui/icons-material'
 import { Button, Card, Divider, IconButton, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
-import { Section, Task } from '@prisma/client'
+import {  Task } from '@prisma/client'
 import React, { useEffect, useState } from 'react'
 import {DragDropContext, Draggable, Droppable, DropResult} from "react-beautiful-dnd"
-import { TaskType } from '../../prisma/zod'
+import { TaskType } from '../../prisma/zod/task'
 import { CompleteSectionType } from '../pages/boards/[id]'
 import { trpc } from '../utils/trpc'
 import TaskModal from './TaskModal'
