@@ -11,6 +11,9 @@ export const _TaskModel = z.object({
   updatedAt: z.date(),
 }).array()
 
+
+export type TaskType = z.TypeOf<typeof _TaskModel>
+
 export interface CompleteTask extends z.infer<typeof _TaskModel> {
   section: CompleteSection
 }

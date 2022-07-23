@@ -4,6 +4,7 @@ import { Box } from '@mui/system'
 import { Section, Task } from '@prisma/client'
 import React, { useEffect, useState } from 'react'
 import {DragDropContext, Draggable, Droppable, DropResult} from "react-beautiful-dnd"
+import { TaskType } from '../../prisma/zod'
 import { CompleteSectionType } from '../pages/boards/[id]'
 import { trpc } from '../utils/trpc'
 import TaskModal from './TaskModal'
@@ -55,8 +56,8 @@ const Kanban = ({boardId, sections}: IProps) => {
 
 
         updateTaskPosition.mutate({
-            resourceList: sourceTasks,
-            destinationList: destinationTasks,
+            resourceList: sourceTasks as TaskType,
+            destinationList: destinationTasks as TaskType,
             resourceSectionId: sourceSectionId,
             destinationSectionId: destinatitonSectionId
         },{
