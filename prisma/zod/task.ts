@@ -1,5 +1,5 @@
 import * as z from "zod"
-import { CompleteSection, SectionModel } from "./index"
+import { CompleteSection } from "./index"
 
 export const _TaskModel = z.object({
   id: z.string(),

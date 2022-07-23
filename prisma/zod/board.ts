@@ -1,5 +1,5 @@
 import * as z from "zod"
-import { CompleteSection, SectionModel, CompleteUser, UserModel } from "./index"
+import { CompleteSection,CompleteUser } from "./index"
 
 export const _BoardModel = z.object({
   id: z.string(),
@@ -24,7 +24,3 @@ export interface CompleteBoard extends z.infer<typeof _BoardModel> {
  *
  * NOTE: Lazy required in case of potential circular dependencies within schema
  */
-export const BoardModel: z.ZodSchema<CompleteBoard> = z.lazy(() => _BoardModel.extend({
-  sections: SectionModel.array(),
-  user: UserModel,
-}))

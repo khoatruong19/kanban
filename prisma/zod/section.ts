@@ -1,5 +1,5 @@
 import * as z from "zod"
-import { CompleteBoard, BoardModel, CompleteTask, TaskModel } from "./index"
+import {  CompleteTask} from "./index"
 
 export const _SectionModel = z.object({
   id: z.string(),
@@ -18,8 +18,6 @@ export interface CompleteSection extends z.infer<typeof _SectionModel> {
  *
  * NOTE: Lazy required in case of potential circular dependencies within schema
  */
-export const SectionModel: z.ZodSchema<CompleteSection> = z.lazy(() => _SectionModel.extend({
-  tasks: TaskModel.array()
-}))
+
 
 
