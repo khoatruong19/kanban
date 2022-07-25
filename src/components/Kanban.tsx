@@ -18,7 +18,7 @@ const _TaskModel = z.object({
     id: z.string(),
     title: z.string(),
     content: z.string(),
-    position: z.number().int(),
+    position: z.number(),
     sectionId: z.string(),
     createdAt: z.date(),
     updatedAt: z.date(),
