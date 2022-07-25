@@ -66,6 +66,8 @@ const Kanban = ({boardId, sections}: IProps) => {
             data[destinationColIndex].tasks = destinationTasks
         }
 
+        console.log(sourceTasks)
+
 
         updateTaskPosition.mutate({
             resourceList: sourceTasks as TaskType,
